@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
   def similar_movies
     @similar_movies = Movie.similar_movies(params[:title])
     if @similar_movies.nil?
-      redirect_to root_url, alert: "Movie '#{params[:title]}' do not contain director information"
+      redirect_to movies_path, notice: "'#{params[:title]}' has no director info"
     end
     # Define required @movie
     @movie = Movie.find_by(title: params[:title])
