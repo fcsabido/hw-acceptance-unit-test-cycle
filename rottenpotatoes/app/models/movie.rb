@@ -4,7 +4,7 @@ class Movie < ActiveRecord::Base
   def self.similar_movies movie_title
     result = Movie.find_by(title: movie_title)
     
-    if result[:director].blank? or result[:director].nil?
+    if result.nil? or result[:director].blank?
         return nil
     end
     
