@@ -26,10 +26,12 @@ module NavigationHelpers
       movie_id = Movie.find_by(title: $1).id
       edit_movie_path(movie_id)
       
-    when /^the details page for "(.+)"$/
+    when /^the details page for "(.*)"$/
       movie_title = Movie.find_by(title: $1)
       movie_path(movie_title)
-
+      
+    when /^the Similar Movies page for "(.*)"/
+      similar_movies_path($1)
 
     else
       begin
